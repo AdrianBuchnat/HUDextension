@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../HealOverlay/HealOverlay.csproj" Id="861b9240-c785-4e3f-ade7-f450353e16cc" />
   <Project Path="HUDextension.csproj" />
 </Solution>
