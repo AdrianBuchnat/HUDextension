@@ -5,20 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealOverlay"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="763"
+        Title="MainWindow"
+        Height="55"
+        Width="200"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
         Topmost="True"
         ShowInTaskbar="False">
-    <Grid>
+    <Grid Width="200" Height="55">
+        <Rectangle Fill="#111111" />
+
+        <Rectangle Name="HealthBarBg" Fill="Green" HorizontalAlignment="Left" Width="200" />
+
+
         <TextBlock             
             Name="HealthText"
             Text="100%"
-            FontSize="48"
+            Width="200"
+            FontSize="32"
             FontWeight="Bold"
-            Foreground="LimeGreen"
-            HorizontalAlignment="Center"
+            Foreground="White"
+            HorizontalAlignment="Stretch"
+            TextAlignment="Center"
             VerticalAlignment="Center">
 
             <TextBlock.Effect>
