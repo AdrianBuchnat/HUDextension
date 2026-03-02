@@ -47,18 +47,24 @@ namespace HealOverlay
             double maxBarWidth = 200.0;
             HealthBarBg.Width = maxBarWidth * hp;
 
-            if (hp < 0.3)
-            {
-                HealthBarBg.Fill = System.Windows.Media.Brushes.Red;
-            }
-            else if (hp < 0.6)
-            {
-                HealthBarBg.Fill = System.Windows.Media.Brushes.Yellow;
-            }
-            else
-            {
-                HealthBarBg.Fill = System.Windows.Media.Brushes.LimeGreen;
-            }
+            System.Windows.Media.Color fullHealthColor = System.Windows.Media.Colors.LimeGreen;
+            System.Windows.Media.Color deadColor = System.Windows.Media.Colors.Red;
+
+            System.Windows.Media.Color currentColor = LerpColor(fullHealthColor, deadColor, hp);
+
+            HealthBarBg.Fill = new System.Windows.Media.SolidColorBrush(currentColor);
+        }
+
+        private System.Windows.Media.Color LerpColor(System.Windows.Media.Color start, System.Windows.Media.Color end, double percent)
+        {
+            float factor = (float)(1.0 - percent);
+
+            byte r = (byte)(start.R + (end.R - start.R) * factor);
+            byte g = (byte)(start.G + (end.G - start.G) * factor);
+            byte b = (byte)(start.B + (end.B - start.B) * factor);
+
+            return System.Windows.Media.Color.FromRgb(r, g, b);
+
         }
     }
 }
